@@ -19,7 +19,16 @@ export class RegisterPage extends BasePage {
     this.securityQuestionSelect = page.getByLabel('Selection list for the security question')
     this.securityAnswerInput = page.getByLabel('Field for the answer to the security question')
     this.signUpButton = page.getByLabel('Button to complete the registration')
-    this.registrationSuccessMessage = page.getByText('Registration completed successfully')
+    this.registrationSuccessMessage = page.getByText('Registration completed successfully. You can now log in.', { exact: true })
+  }
 
+  async register(email: string, password: string, securityQuestion: string, securityAnswer: string) {
+    await this.emailInput.fill(email)
+    await this.passwordInput.fill(password)
+    await this.confirmPasswordInput.fill(password)
+    await this.securityQuestionSelect.click()
+    await this.page.getByRole('option', { name: securityQuestion }).click()
+    await this.securityAnswerInput.fill(securityAnswer)
+    await this.signUpButton.click()
   }
 }

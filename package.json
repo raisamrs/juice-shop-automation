@@ -4,7 +4,8 @@
   "description": "Automação de testes E2E para OWASP Juice Shop com Playwright + TypeScript",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/node": "^24.10.1"
+    "@types/node": "^24.10.1",
+    "typescript": "^6.0.3"
   },
   "scripts": {
     "test": "playwright test",
