@@ -1,0 +1,34 @@
+{
+  "name": "juice-shop-automation",
+  "version": "1.0.0",
+  "description": "Automação de testes E2E para OWASP Juice Shop com Playwright + TypeScript",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.1"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:codegen": "playwright codegen http://localhost:3000",
+    "ui-test": "playwright test --grep @ui",
+    "ui-test-gui": "playwright test --grep @ui --ui",
+    "pretest": "echo 'Running pre-test checks...'",
+    "test:critical": "playwright test --grep @critical",
+    "test:sanity": "playwright test --grep @sanity",
+    "test:regression": "playwright test --grep @regression",
+    "juice:up": "docker run -d -p 3000:3000 --name juice-shop bkimminich/juice-shop",
+    "juice:stop": "docker stop juice-shop",
+    "juice:start": "docker start juice-shop",
+    "juice:rm": "docker rm -f juice-shop"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "faker-br": "^0.5.0"
+  }
+}
