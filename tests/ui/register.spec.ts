@@ -6,11 +6,16 @@ const registerPath = '/#/register'
 
 test.describe('Registro de Usuário', () => {
 
+  test.beforeEach(async ({ registerPage }) => {
+    await registerPage.goTo(baseURL, registerPath)
+    await registerPage.dismissWelcomeBanners()
+  })
+
   test('Cadastra um usuário com sucesso', async ({ registerPage }) => {
     const email = data.commonData.generateUniqueEmail()
     const password = data.commonData.generatePwd()
-    const securityAnswer = data.commonData.generateSecurityAnswer()
     const securityQuestion = 'Your eldest siblings middle name?'
+    const securityAnswer = data.commonData.generateSecurityAnswer()
 
     await registerPage.goTo(baseURL, registerPath)
     await registerPage.register(email, password, securityQuestion, securityAnswer)

@@ -10,7 +10,6 @@ export class RegisterPage extends BasePage {
   readonly signUpButton: Locator
   readonly registrationSuccessMessage: Locator
 
-
   constructor(page: Page) {
     super(page)
     this.emailInput = page.getByLabel('Email address field')
@@ -27,7 +26,7 @@ export class RegisterPage extends BasePage {
     await this.passwordInput.fill(password)
     await this.confirmPasswordInput.fill(password)
     await this.securityQuestionSelect.click()
-    await this.page.getByRole('option', { name: securityQuestion }).click()
+    await this.page.locator('mat-option', { hasText: securityQuestion }).click()
     await this.securityAnswerInput.fill(securityAnswer)
     await this.signUpButton.click()
   }

@@ -17,7 +17,7 @@ export class BasePage {
    */
   async dismissWelcomeBanners() {
     const dismissWelcome = this.page.getByRole('button', { name: 'Dismiss Welcome Banner' })
-    const acceptCookies = this.page.getByLabel('Me want it!')
+    const acceptCookies = this.page.getByText('Me want it!')
 
     if (await dismissWelcome.isVisible().catch(() => false)) {
       await dismissWelcome.click()
