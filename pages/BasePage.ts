@@ -16,15 +16,20 @@ export class BasePage {
    * Esse helper fecha ambos caso estejam visíveis.
    */
   async dismissWelcomeBanners() {
-    const dismissWelcome = this.page.getByRole('button', { name: 'Dismiss Welcome Banner' })
+    const dismissWelcome = this.page.getByLabel('Close Welcome Banner')
     const acceptCookies = this.page.getByText('Me want it!')
+    const welcomeBanner = this.page.locator('div.mat-mdc-dialog-surface')
 
-    if (await dismissWelcome.isVisible().catch(() => false)) {
+    await dismissWelcome.waitFor({ state: 'visible', timeout: 3000 }).catch(() => null)
+    if (await dismissWelcome.isVisible()) {
       await dismissWelcome.click()
+      await welcomeBanner.waitFor({ state: 'hidden' })
     }
 
-    if (await acceptCookies.isVisible().catch(() => false)) {
+    await acceptCookies.waitFor({ state: 'visible', timeout: 3000 }).catch(() => null)
+    if (await acceptCookies.isVisible()) {
       await acceptCookies.click()
+      await acceptCookies.waitFor({ state: 'hidden' })
     }
   }
 }

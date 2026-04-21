@@ -16,7 +16,7 @@ export default defineConfig({
   reporter: process.env.CI
     ? [['html'], ['json', { outputFile: 'test-results/results.json' }], ['junit', { outputFile: 'test-results/junit.xml' }]]
     : 'html',
-  timeout: 60000,
+  timeout: 10000,
   use: {
     baseURL: process.env.JUICE_SHOP_BASE_URL || 'http://localhost:3000',
     trace: 'on-first-retry',

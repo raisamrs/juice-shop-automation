@@ -21,13 +21,21 @@ export class RegisterPage extends BasePage {
     this.registrationSuccessMessage = page.getByText('Registration completed successfully. You can now log in.', { exact: true })
   }
 
-  async register(email: string, password: string, securityQuestion: string, securityAnswer: string) {
-    await this.emailInput.fill(email)
-    await this.passwordInput.fill(password)
-    await this.confirmPasswordInput.fill(password)
-    await this.securityQuestionSelect.click()
-    await this.page.locator('mat-option', { hasText: securityQuestion }).click()
-    await this.securityAnswerInput.fill(securityAnswer)
-    await this.signUpButton.click()
+  async fillForm(options: {
+    email?: string
+    password?: string
+    confirmPassword?: string
+    securityQuestion?: string
+    securityAnswer?: string
+  }) {
+    if (options.email !== undefined) await this.emailInput.fill(options.email)
+    if (options.password !== undefined) await this.passwordInput.fill(options.password)
+    if (options.confirmPassword !== undefined) await this.confirmPasswordInput.fill(options.confirmPassword)
+    if (options.securityQuestion !== undefined) {
+      await this.securityQuestionSelect.click()
+      await this.page.locator('.mat-mdc-select-panel').waitFor({ state: 'visible' })
+      await this.page.locator('mat-option', { hasText: options.securityQuestion }).click()
+    }
+    if (options.securityAnswer !== undefined) await this.securityAnswerInput.fill(options.securityAnswer)
   }
 }
