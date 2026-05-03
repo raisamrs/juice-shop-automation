@@ -68,7 +68,7 @@ juice-shop-automation/
 
 ### 1. Subindo o Juice Shop com Docker
 
-A forma mais simples de rodar a aplicação é via Docker — não precisa instalar Node.js, banco, nem nada relacionado ao Juice Shop em si.
+A forma mais simples de rodar a aplicação é via Docker: não precisa instalar Node.js, banco, nem nada relacionado ao Juice Shop em si.
 
 ```bash
 # Baixa a imagem oficial mantida pela OWASP
