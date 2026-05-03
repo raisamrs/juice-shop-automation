@@ -8,7 +8,7 @@ Este projeto faz parte do meu portfólio como QA.
 
 ## 🧃 Sobre o Juice Shop
 
-O **OWASP Juice Shop** é uma aplicação web propositalmente vulnerável, mantida pela OWASP (Open Worldwide Application Security Project). Apesar de simular uma **loja online de sucos** — com catálogo de produtos, carrinho, login e checkout — seu objetivo real é servir como ambiente de estudo para segurança de aplicações e testes automatizados.
+O **OWASP Juice Shop** é uma aplicação web propositalmente vulnerável, mantida pela OWASP (Open Worldwide Application Security Project). Apesar de simular uma **loja online de sucos** (com catálogo de produtos, carrinho, login e checkout), seu objetivo real é servir como ambiente de estudo para segurança de aplicações e testes automatizados.
 
 Por que é uma boa escolha para automação de QA:
 
