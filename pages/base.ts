@@ -1,5 +1,5 @@
 import { test as base, expect } from "@playwright/test";
-import { RegisterPage } from "./RegisterPage";
+import { RegisterPage } from "./shop/RegisterPage";
 
 export { expect }
 
