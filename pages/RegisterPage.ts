@@ -33,7 +33,6 @@ export class RegisterPage extends BasePage {
     if (options.confirmPassword !== undefined) await this.confirmPasswordInput.fill(options.confirmPassword)
     if (options.securityQuestion !== undefined) {
       await this.securityQuestionSelect.click()
-      await this.page.locator('.mat-mdc-select-panel').waitFor({ state: 'visible' })
       await this.page.locator('mat-option', { hasText: options.securityQuestion }).click()
     }
     if (options.securityAnswer !== undefined) await this.securityAnswerInput.fill(options.securityAnswer)
