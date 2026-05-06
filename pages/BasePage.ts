@@ -8,7 +8,7 @@ export class BasePage {
   }
 
   async goTo(baseURL: string, path: string = '') {
-    await this.page.goto(baseURL + path, { waitUntil: 'load', timeout: 60000 })
+    await this.page.goto(baseURL + path, { waitUntil: 'networkidle', timeout: 60000 })
   }
 
   /**
