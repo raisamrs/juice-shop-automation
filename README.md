@@ -69,18 +69,20 @@ juice-shop-automation/
 ### 1. Subindo o Juice Shop com Docker
 
 A forma mais simples de rodar a aplicação é via Docker: não precisa instalar Node.js, banco, nem nada relacionado ao Juice Shop em si.
+Abra o terminal do PowerShell como administrado e rode, na seguinte sequência, os comandos abaixo:
 
 ```bash
-# Baixa a imagem oficial mantida pela OWASP
+#1 Baixa a imagem oficial mantida pela OWASP
 docker pull bkimminich/juice-shop
 
-# Sobe o container na porta 3000
+#2 Sobe o container na porta 3000
 docker run --rm -p 3000:3000 bkimminich/juice-shop
 ```
 
 Pronto! Acesse `http://localhost:3000` no navegador para confirmar que está no ar.
 
 > 💡 **Dica:** você também pode subir/parar o container direto pela interface do Docker Desktop, na aba **Containers**. O botão de "play/stop" facilita bastante quando você só quer rodar os testes rapidamente.
+![imagem do container no docker sinalizando o botão "stop/play"](assets/docker-juice-shop.png)
 
 **Comandos úteis:**
 
