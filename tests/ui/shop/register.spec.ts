@@ -1,5 +1,5 @@
-import { test, expect } from "../../pages/base";
-import { data } from "../../utils/juice-shop-data";
+import { test, expect } from "../../../pages/base";
+import { data } from "../../../utils/juice-shop-data";
 
 const baseURL = process.env.JUICE_SHOP_BASE_URL as string
 const registerPath = '/#/register'
