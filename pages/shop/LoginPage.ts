@@ -10,6 +10,7 @@ export class LoginPage extends BasePage {
   readonly submitButton: Locator
   readonly buttonLoginWithGoogle: Locator
   readonly buttonGoToProfile: Locator
+  readonly buttonLogout: Locator
 
   constructor(page: Page) {
     super(page)
@@ -21,5 +22,6 @@ export class LoginPage extends BasePage {
     this.rememberMeCheckbox = page.getByLabel('Checkbox to stay logged in or not logged in')
     this.buttonLoginWithGoogle = page.getByLabel('Login with Google')
     this.buttonGoToProfile = page.getByRole('menuitem', { name: 'Go to user profile' })
+    this.buttonLogout = page.getByLabel('Logout')
   }
 }

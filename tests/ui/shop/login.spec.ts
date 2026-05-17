@@ -17,16 +17,23 @@ test.describe('Login e Autenticação', () => {
     test('Login com sucesso usando credenciais válidas', async ({ loginPage }) => {
       await loginPage.emailInput.fill(VALID_USER.email)
       await loginPage.passwordInput.fill(VALID_USER.password)
+      await loginPage.rememberMeCheckbox.check()
       await loginPage.submitButton.click()
+      await loginPage.page.waitForURL('**/#/search', { timeout: 10000 })
       await loginPage.accountButton.click()
       await expect(loginPage.buttonGoToProfile).toBeVisible()
+      await loginPage.buttonLogout.click()
+      
     })
 
     test('Login com sucesso marcando "Lembrar de mim"', async ({ loginPage }) => {
-      // Verificar:
-      // - Login funciona normalmente com o checkbox marcado
-      // - Cookie/token de sessão persiste após fechar e reabrir o navegador
-      //   (usar context.storageState() ou navegar novamente)
+      await loginPage.emailInput.fill(VALID_USER.email)
+      await loginPage.passwordInput.fill(VALID_USER.password)
+
+      await loginPage.submitButton.click()
+      await loginPage.page.waitForURL('**/#/search', { timeout: 10000 })
+      await loginPage.accountButton.click()
+      await expect(loginPage.buttonGoToProfile).toBeVisible()
     })
 
     test('Login com Google (OAuth)', async ({ loginPage }) => {

@@ -8,7 +8,7 @@ dotenv.config({ path: path.resolve(rootDir, '.env') })
 
 
 export default defineConfig({
-  globalSetup: require.resolve('./tests/global-setup'),
+  globalSetup: './tests/global-setup',
   testDir: './tests/ui',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
